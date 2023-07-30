@@ -91,3 +91,30 @@ The trial_periods array is essential for exploring different periods and assessi
 ### Answer
 The trial periods in the Plavchan periodogram algorithm do not involve guessing. Instead, they are systematically chosen to cover a range of possible periodicities for the given time series data. In the algorithm, a set of trial periods is predefined, representing potential periodic signals that may exist in the data. The range of trial periods is often determined based on the nature of the observed phenomenon and the desired sensitivity in the search for periodic signals. These trial periods are then used to test for periodicity in the time series data, allowing the algorithm to identify the most likely period of any periodic signal present in the data. The systematic approach of selecting trial periods ensures that the algorithm comprehensively explores the periodicity landscape, making it less reliant on random guessing and more effective in detecting periodic patterns in the data.
 
+### To implement Plavchan periodgram was used Boxcar smoothing, but what is it ?
+Boxcar smoothing, also known as moving average smoothing, is a simple technique used to reduce noise and reveal trends or patterns in time-series data. It involves averaging consecutive data points within a fixed window or "box" to produce a smoothed version of the original signal.
+
+The basic idea behind boxcar smoothing is to replace each data point with the average value of its neighboring points within the specified window. The width of the window determines the degree of smoothing. A wider window will result in more aggressive smoothing, while a narrower window will preserve more of the original data's variability.
+
+Here's a step-by-step explanation of boxcar smoothing:
+
+  Define the Window Size: Choose the width of the window (usually an odd integer) that determines the number of data points to include in the averaging process. For example, if the window size is set to 5, each data point will be replaced with the average of itself and the two neighboring points on each side.
+```
+Compute the Moving Average: Slide the window along the time series, one data point at a time,
+and calculate the average of the data points within the window at each position.
+For data points near the edges, where the window cannot fully fit,
+adjust the window accordingly (e.g., use fewer points if near the beginning or end of the time series).
+
+Replace Data Points: Replace each data point with its corresponding moving average value.
+The result is a smoothed version of the original time series,
+with reduced noise and fewer short-term fluctuations.
+
+Boxcar smoothing is easy to implement and computationally efficient,
+making it a popular choice for quick data exploration and visualization.
+However, it has some limitations. The method may introduce artificial
+boundaries at the edges of the time series due to the incomplete window,
+and it may not be suitable for all types of data, especially if there
+are abrupt changes or sharp spikes that need to be preserved.
+```
+Other smoothing techniques, such as Gaussian smoothing or Savitzky-Golay filtering, address some of these limitations by using weighted averaging or fitting polynomial functions to the data. The choice of smoothing technique depends on the specific characteristics of the data and the desired level of noise reduction.
+
