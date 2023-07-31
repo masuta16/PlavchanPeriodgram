@@ -1,4 +1,11 @@
 # Plavchan Periodgram
+Made by:
+[Andrade, Israel. (2023). Understanding Plavchan Algorithm: An In-Depth Analysis. 30.](https://github.com/masuta16/PlavchanPeriodgram/blob/main/Understanding%20plavchan%20algorithm.pdf)
+
+[Open in Google Colab](https://colab.research.google.com/drive/1-aPMT-sppMF3aNsvt2KxL2prhOkLRk9G)
+
+
+
 # An implementation for Plavchan Periodgram
 
 Here's the formula:
