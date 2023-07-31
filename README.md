@@ -1,4 +1,4 @@
-# Plavchan Periodgram
+# Plavchan Periodogram
 Made by:
 [Andrade, Israel. (2023). Understanding Plavchan Algorithm: An In-Depth Analysis. 30.](https://github.com/masuta16/PlavchanPeriodgram/blob/main/Understanding%20plavchan%20algorithm.pdf)
 
@@ -6,7 +6,7 @@ Made by:
 
 
 
-# An implementation for Plavchan Periodgram
+# An implementation for Plavchan Periodogram
 
 Here's the formula:
 
