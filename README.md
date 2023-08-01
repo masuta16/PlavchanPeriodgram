@@ -1,12 +1,70 @@
-# Plavchan Periodogram
+# PlavchanPeriodogram
+
 Made by: Israel Andrade
 [Andrade, Israel. (2023). Understanding Plavchan Algorithm: An In-Depth Analysis. 30.](https://github.com/masuta16/PlavchanPeriodgram/blob/main/Understanding%20plavchan%20algorithm.pdf)
 
 [Open in Google Colab](https://colab.research.google.com/drive/1-aPMT-sppMF3aNsvt2KxL2prhOkLRk9G)
 
+[![PyPI version](https://badge.fury.io/py/plavchan-periodogram.svg)](https://badge.fury.io/py/plavchan-periodogram)
 
+The `PlavchanPeriodogram` is a Python package that provides an implementation of the Plavchan Periodogram for period analysis of time series data. This algorithm is useful for identifying periodic variations in astronomical data, such as those observed in light curves from telescopes like TESS (Transiting Exoplanet Survey Satellite).
 
-# An implementation for Plavchan Periodogram
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install PlavchanPeriodogram
+```
+
+## Usage
+
+To use the `PlavchanPeriodogram`, you first need to import the necessary modules and create an instance of the class with your time and flux data. Here's an example of how to use it:
+
+```python
+import numpy as np
+from PlavchanPeriodogram import PlavchanPeriodogram
+
+# Assuming you have time and flux data in the form of NumPy arrays
+time_data = np.array([...])
+flux_data = np.array([...])
+
+# Initialize the PlavchanPeriodogram class with time and flux data
+periodogram_calculator = PlavchanPeriodogram(time_data, flux_data)
+
+# Generate an array of trial periods to test (e.g., from 0.1 to 30.0 days)
+trial_periods = np.linspace(0.1, 30.0, 10)
+
+# Compute the periodogram for the trial periods
+periodogram = periodogram_calculator.compute_periodogram(trial_periods)
+
+# Now you have the periodogram, which contains the power values for each trial period
+print(periodogram)
+```
+
+## How it Works
+
+The `PlavchanPeriodogram` class uses the Plavchan Periodogram algorithm to find periodic variations in time series data. The main steps of the algorithm include:
+
+1. **Phase Folding:** The time series data is folded to test for periodicity at different trial periods.
+
+2. **Smoothing:** A box-car smoothing technique is applied to create a dynamical prior for comparison.
+
+3. **Computing the Difference:** The squared residuals between the original flux data and the smoothed curve are calculated.
+
+4. **Minimization:** A subset of the worst-fitting data points is used to minimize the squared residuals.
+
+5. **Periodogram Power Calculation:** The periodogram power is calculated for each trial period based on the normalization and squared residuals.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow the guidelines in CONTRIBUTING.md.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+---
 
 Here's the formula:
 
